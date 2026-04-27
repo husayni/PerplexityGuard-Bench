@@ -1,0 +1,73 @@
+# --- Submission cleanup -------------------------------------------------
+# Only REPORT.pdf is the canonical submission artifact. The markdown source,
+# DOCX exports, intermediate figures, and Claude-Code prompt scratchpad are
+# kept locally for regeneration but excluded from the GitHub repo so judges
+# see a minimal package: PDF report + code + data + README.
+
+REPORT.md
+REPORT.docx
+REPORT_for_gdocs.md
+REPORT_for_gdocs.docx
+REPORT_figure1.png
+CLAUDE_CODE_PROMPTS.md
+
+# Local-only logs and scratch files
+run.log
+test.txt
+*.log
+
+# --- Python --------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ------------------------------------------------
+.venv/
+venv/
+env/
+
+# --- IDE / OS ------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Tooling caches ------------------------------------------------------
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# --- Cloned external dependencies ----------------------------------------
+# ProteinMPNN is cloned during setup; users re-clone via the README.
+# Comment this out if you want the cloned repo committed alongside.
+external/
+
+# --- HuggingFace model cache --------------------------------------------
+# ESM-2 weights are downloaded automatically on first use. Don't commit
+# them — they are large and reproducible.
+.cache/
+~/.cache/huggingface/
+
+# --- Claude Code session metadata ---------------------------------------
+.claude/
+
+# --- Experimental data outputs (per "don't push any data") ---------------
+# Code is published; raw per-sequence outputs and per-model calibration
+# dumps are regenerable from a single demo run (see README + REPORT). The
+# repo ships only the figures that the report embeds, not the underlying
+# CSV / JSON / FASTA / PDB tables.
+*.csv
+*.npz
+*.fasta
+*.fa
+results/scores.npz
+results/summary.json
+perplexity_guard/calibration/*.json
+perplexity_guard/audit/results/*.json
+perplexity_guard/demo_results/*.json
+perplexity_guard/tests/sample_pdbs/*.pdb

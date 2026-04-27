@@ -1,0 +1,17 @@
+# PerplexityGuard runtime dependencies.
+# Recommended install path: `uv sync` (uses ../pyproject.toml + ../uv.lock).
+# Pip-only fallback (resolves freshly):
+#
+#   pip install -r perplexity_guard/requirements.txt
+#   git clone https://github.com/dauparas/ProteinMPNN external/ProteinMPNN
+#   pip install git+https://github.com/ibbis-screening/common-mechanism
+
+torch>=2.4
+transformers>=4.40
+biopython>=1.83
+numpy>=1.26
+matplotlib>=3.8
+scipy>=1.12
+requests>=2.31
+gradio>=4.40
+pandas>=2.2
