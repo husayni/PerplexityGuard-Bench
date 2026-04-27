@@ -1,21 +1,3 @@
-# --- Submission cleanup -------------------------------------------------
-# Only REPORT.pdf is the canonical submission artifact. The markdown source,
-# DOCX exports, intermediate figures, and Claude-Code prompt scratchpad are
-# kept locally for regeneration but excluded from the GitHub repo so judges
-# see a minimal package: PDF report + code + data + README.
-
-REPORT.md
-REPORT.docx
-REPORT_for_gdocs.md
-REPORT_for_gdocs.docx
-REPORT_figure1.png
-CLAUDE_CODE_PROMPTS.md
-
-# Local-only logs and scratch files
-run.log
-test.txt
-*.log
-
 # --- Python --------------------------------------------------------------
 __pycache__/
 *.py[cod]
@@ -44,7 +26,6 @@ Thumbs.db
 
 # --- Cloned external dependencies ----------------------------------------
 # ProteinMPNN is cloned during setup; users re-clone via the README.
-# Comment this out if you want the cloned repo committed alongside.
 external/
 
 # --- HuggingFace model cache --------------------------------------------
@@ -56,18 +37,23 @@ external/
 # --- Claude Code session metadata ---------------------------------------
 .claude/
 
-# --- Experimental data outputs (per "don't push any data") ---------------
-# Code is published; raw per-sequence outputs and per-model calibration
-# dumps are regenerable from a single demo run (see README + REPORT). The
-# repo ships only the figures that the report embeds, not the underlying
-# CSV / JSON / FASTA / PDB tables.
-*.csv
-*.npz
-*.fasta
-*.fa
-results/scores.npz
-results/summary.json
-perplexity_guard/calibration/*.json
-perplexity_guard/audit/results/*.json
-perplexity_guard/demo_results/*.json
-perplexity_guard/tests/sample_pdbs/*.pdb
+# --- Local-only scratch --------------------------------------------------
+run.log
+test.txt
+*.log
+
+# --- Submission work artifacts (regeneratable from REPORT.md → pandoc) ---
+# REPORT.pdf is the canonical submission. The markdown source, DOCX
+# exports, and figure-stripped variants are kept locally for re-rendering
+# but excluded from the GitHub repo.
+REPORT.md
+REPORT.docx
+REPORT_for_gdocs.md
+REPORT_for_gdocs.docx
+REPORT_figure1.png
+CLAUDE_CODE_PROMPTS.md
+
+# --- Data (CSVs, calibrations, FASTA, PDBs, figures) are committed ------
+# All data files are non-sensitive (no regulated-agent sequences;
+# benign-derived test constructs only) and core to the benchmark's
+# reproducibility claim. See REPORT §A.4 for the dual-use review.

@@ -1,0 +1,10 @@
+{
+  "model": "facebook/esm2_t12_35M_UR50D",
+  "n": 50,
+  "mean": 12.094716079847904,
+  "std": 3.058411788377721,
+  "p50": 12.516604808632342,
+  "p95": 16.199413108856188,
+  "p99": 16.52181615451409,
+  "source_fasta": "/Users/hussain/Development/personal/hackathon/aixbio/perplexity_guard/calibration/uniprot_sample.fasta"
+}

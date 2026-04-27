@@ -1,0 +1,11 @@
+{
+  "model": "facebook/esm2_t12_35M_UR50D",
+  "window_size": 30,
+  "mean": 11.871757631395296,
+  "std": 4.753554760807706,
+  "p95": 19.033128862528503,
+  "p99": 20.541480690290587,
+  "n_windows": 4733,
+  "n_sequences": 39,
+  "source": "idrfree"
+}

@@ -1,0 +1,88 @@
+{
+  "model": "facebook/esm2_t12_35M_UR50D",
+  "device": "mps",
+  "n_sequences": 60,
+  "length_range": [
+    80,
+    200
+  ],
+  "natural_summary": {
+    "mean": 11.543278888602327,
+    "median": 11.606622051095659,
+    "std": 3.6493788141430543,
+    "min": 5.041431611077901,
+    "max": 17.725145145735496
+  },
+  "conditions": {
+    "shuffled": {
+      "n_natural": 60,
+      "n_synthetic": 60,
+      "mean_natural": 11.543278888602327,
+      "mean_synthetic": 18.89053300366967,
+      "median_natural": 11.606622051095659,
+      "median_synthetic": 19.02708136495052,
+      "cohens_d": 2.585332356288733,
+      "cohens_d_ci95": [
+        2.144850559109745,
+        3.1626199590197186
+      ],
+      "auroc": 0.9786111111111111,
+      "mannwhitney_p_one_sided": 7.777865947794284e-20,
+      "welch_t": -14.160448501873223,
+      "welch_p_two_sided": 7.422927233374848e-24
+    },
+    "mutated_40pct": {
+      "n_natural": 60,
+      "n_synthetic": 60,
+      "mean_natural": 11.543278888602327,
+      "mean_synthetic": 19.28421755391902,
+      "median_natural": 11.606622051095659,
+      "median_synthetic": 19.42832969044911,
+      "cohens_d": 2.7609230222704255,
+      "cohens_d_ci95": [
+        2.3700170791150166,
+        3.3388802811583784
+      ],
+      "auroc": 0.9866666666666667,
+      "mannwhitney_p_one_sided": 1.9103371752372227e-20,
+      "welch_t": -15.122198188328499,
+      "welch_p_two_sided": 4.03259162509301e-25
+    },
+    "repeat_motif": {
+      "n_natural": 60,
+      "n_synthetic": 60,
+      "mean_natural": 11.543278888602327,
+      "mean_synthetic": 1.0045684542256887,
+      "median_natural": 11.606622051095659,
+      "median_synthetic": 1.0033512803216482,
+      "cohens_d": -4.083977470161134,
+      "cohens_d_ci95": [
+        -4.890198975757777,
+        -3.5356957064164427
+      ],
+      "auroc": 0.0,
+      "mannwhitney_p_one_sided": 1.0,
+      "welch_t": 22.368865847501343,
+      "welch_p_two_sided": 1.663830923283707e-30
+    },
+    "unigram_corpus": {
+      "n_natural": 60,
+      "n_synthetic": 60,
+      "mean_natural": 11.543278888602327,
+      "mean_synthetic": 19.542955948363534,
+      "median_natural": 11.606622051095659,
+      "median_synthetic": 19.672164656326927,
+      "cohens_d": 3.025657863459966,
+      "cohens_d_ci95": [
+        2.619180584613444,
+        3.590759378192743
+      ],
+      "auroc": 0.9994444444444445,
+      "mannwhitney_p_one_sided": 1.9656617825717144e-21,
+      "welch_t": -16.57221063109909,
+      "welch_p_two_sided": 5.324600858712005e-25
+    }
+  },
+  "decision": "GO",
+  "reason": "Realistic AI failure mode 'mutated_40pct' separates: d=2.76 (95% CI 2.37\u20133.34), AUROC=0.99, p=1.9e-20."
+}

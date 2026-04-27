@@ -1,0 +1,11 @@
+{
+  "model": "facebook/esm2_t30_150M_UR50D",
+  "window_size": 30,
+  "mean": 9.36982296250386,
+  "std": 4.928708101075007,
+  "p95": 17.599295508709517,
+  "p99": 19.888310801006842,
+  "n_windows": 5723,
+  "n_sequences": 50,
+  "source": "/Users/hussain/Development/personal/hackathon/aixbio/perplexity_guard/calibration/facebook_esm2_t30_150M_UR50D_window30.json"
+}
