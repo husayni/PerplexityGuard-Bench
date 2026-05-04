@@ -122,7 +122,7 @@ The §4.3 *Lemma (Whole-sequence dilution)* proves the 30% cell is structural fo
 
 ## Submission contact
 
-- **Author:** Hussain (`shussain@tryverbal.com`)
+- **Author:** Hussain (`hussainsyed.dev@gmail.com`)
 - **Title:** *PerplexityGuard-Bench: An Adversarial-Robustness Benchmark for Sequence-Naturalness Synthesis Screens*
 - **Track:** AIxBio Hackathon 2026 — Track 1 (DNA Screening & Synthesis Controls)
 - **License:** MIT (this package). ProteinMPNN and commec retain their upstream licenses.
