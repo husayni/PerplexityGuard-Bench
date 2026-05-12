@@ -10,7 +10,7 @@ AIxBio Hackathon 2026 — Track 1: DNA Screening & Synthesis Controls. Submitted
 - **The benchmark:** `perplexity_guard/audit/` — a frozen attack battery + a five-screen evaluator + the figures and tables in the paper.
 - **The reference implementation:** `perplexity_guard/core/` — ESM-2 pseudo-perplexity (whole-sequence and sliding-window) + Wootton-Federhen complexity + commec wrapper.
 - **The headline result:** sliding-window pseudo-perplexity is the *structural patch* that closes the §4.2 mosaic-stitching evasion. At 50% natural-prefix budget, it recovers detection from 30% (whole-sequence OR-gate) to **70%** (OR-gate v2). The patch costs a 10% native-FPR, manageable via threshold retuning.
-- **Honest scope note:** the `commec` homology arm is wired up in code but **not empirically validated** in this work because the BLAST databases were not configured for the demo run. The OR-gate as measured in the paper is the perplexity + complexity arms only. See [`REPORT.md`](REPORT.md) §6.1.
+- **Commec status:** the `commec` homology arm is wired up **and was run end-to-end** on the n=120 main matrix (`commec_status=clear` for every row of `perplexity_guard/demo_results/e2e_demo.csv`). All test sequences are benign-derived, so commec correctly returns `clear` on every one — its empirical contribution to the OR-gate on this benign-derived corpus is therefore null, but the homology arm is part of the measured pipeline rather than a paper-only claim. To reproduce, install commec with the BLAST databases configured (see step 3 in *Reproducing the paper* below); without that the homology arm degrades to a structured `skipped` diagnostic and the perplexity + complexity arms carry the screen. See [`REPORT.md`](REPORT.md) §6.1.
 
 ## Reproducing the paper
 
@@ -24,9 +24,12 @@ uv sync
 #    as one of the "real generator" attack classes in the §4.1 main matrix).
 git clone --depth 1 https://github.com/dauparas/ProteinMPNN external/ProteinMPNN
 
-# 3. (Optional) Install commec for real homology screening. Without this the
-#    OR-gate's homology arm runs in `skipped` mode with structured diagnostics
-#    (the homology claim is described in the paper but not empirically measured).
+# 3. Install commec for the homology arm. This was configured for the paper's
+#    n=120 main matrix; every benign-derived sequence returned `clear`, so
+#    commec contributes the orthogonal homology signal without altering
+#    detection numbers on this corpus. Without commec the OR-gate's homology
+#    arm degrades to a structured `skipped` diagnostic (perplexity + complexity
+#    still run and carry the screen).
 #    See https://commec.readthedocs.io for the BLAST-database setup; the
 #    regulated-only mini-DB is a few GB, the full setup is ~50 GB.
 #
